@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBMC Cafeteria</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <style>
+
+        * {
+            box-sizing:border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("https://i.pinimg.com/736x/8d/d8/36/8dd836d89686ff3c54456e530fbe6cf2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #360301;
+        }
+
+        .header {
+            background: #FFFDD0;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 5px;
+        }
+
+        .menu {
+            width: 70%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .category {
+            background: #fffdd0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .category h2 {
+            margin: 5px 0 10px 0;
+        }
+
+        .juice {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #90ee90;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .button {
+            display: block;
+            width: 180px;
+            margin: 15px auto;
+            padding: 9px;
+            background: #98fb98;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #023020;
+            color: white;
+        }
+
+        .receipt {
+            background:#FFFDD0;
+            width: 55%;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .receipt h2 {
+            margin: 5px 0 12px;
+        }
+
+        .receipt p {
+            margin: 6px 0;
+        }
+
+        .total {
+            font-size: 20px;
+            color: #355e3b;
+        }
+
+        @media (max-width: 750px) {
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            .receipt {
+                position: static;
+            }
+
+        }  
+
+    </style>
+
+</head>
+<body>
+
+    <div class="header">
+    <h1>OBMC Cafeteria Menu</h1>
+    </div>
+
+    <br><br><br>
+
+    <div class="menu">
+   
+    <div class="category">
+    <h2>Food</h2>
+
+    <input type="checkbox" id="corn_dog" data-price="80"> Corn Dog - 80 pesos<br>
+    <input type="checkbox" id="chicken_pops" data-price="60"> Chicken Pops - 60 pesos
+    <br>
+    <input type="checkbox" id="cheese_sticks" data-price="40"> Cheese Sticks - 40 pesos
+    <br>
+    <input type="checkbox" id="spam_musubi" data-price="60"> Spam Musubi - 60 pesos
+    <br><br><br>
+    </div>
+    
+    <div class="category">
+    <h2>Dessert</h2>
+
+    <input type="checkbox" id="mango_float" data-price="20"> Mango Float - 20 pesos
+    <br>
+    <input type="checkbox" id="blueberry" data-price="20"> Blueberry Cheesecake - 20 pesos
+    <br>
+    <input type="checkbox" id="magnum" data-price="25"> Magnum Ice Cream - 25 pesos
+    <br><br><br>
+    </div>
+
+    <div class="category">
+    <h2>Drinks</h2>
+
+    <input type="checkbox" id="water" data-price="15"> Mineral Water - 15 pesos
+    <br>
+    <input type="checkbox" id="milk" data-price="20"> Dutch Milk - 20 pesos
+    <br>
+    <input type="checkbox" id="yakult" data-price="10"> Yakult - 10 pesos
+    <br><br><br>
+
+    <h3>Juice Flavors</h3>
+
+    <select id="juice" class="juice">
+        <option value="" data-price="0"> Juice selections</option>
+        <option value="orange" data-price="25"> Orange - 25 pesos</option>
+        <option value="mango" data-price="25"> Mango - 25 pesos</option>
+        <option value="strawberry" data-price="25"> Strawberry - 25 pesos</option>
+        <option value="grape" data-price="25"> Grape - 25 pesos</option>
+    </select>
+
+    </div>
+
+    <button class="button" type="button" py-click="order"> Confirm Order</button>
+
+    </div>
+
+    <br><br>
+
+    <div id="receipt" class="receipt">
+        <h2>Receipt</h2>
+    </div>
+
+    <script type="py" src="./main.py"></script>
+
+</body>
+</html>
